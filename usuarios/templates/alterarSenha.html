@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h1>Alterar Senha Usuário </h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p><label for="id_old_password">Antiga Senha: </label> <input type="password" name="old_password" autofocus required id="id_old_password"></p>
+        <p><label for="id_new_password1">Nova Senha: </label> <input type="password" name="new_password1" autofocus required id="id_new_password1"></p>
+        <p><label for="id_new_password2">Confirmar nova Senha: </label> <input type="password" name="new_password2" autofocus required id="id_new_password2"></p>
+
+            <button type="submit"> Alterar Senha </button>
+    </form>
+</div>
+{% endblock %}

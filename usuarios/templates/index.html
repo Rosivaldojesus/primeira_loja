@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+    <h2>Página Inicial</h2>
+    <h3><p>Bem vindos a pagina inicial de Python com Django</p></h3>
+
+    {% if request.user.is_authenticated %}
+        <p> Bem Vindo {{ request.user }}</p>
+    {% endif %}
+
+
+{% endblock %}
