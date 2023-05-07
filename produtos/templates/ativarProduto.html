@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+
+    <form method="post" action="{% url 'salvarAtivarProduto' %}">
+         {% csrf_token %}
+        <p><label for="id_nome_produto">Nome produto:</label> <select name="nome_produto" id="id_nome_produto">
+            <option value="ativo">-------------</option>
+            {% for produto in produtos %}
+                <option value="{{ produto.id }}">{{ produto.nome_produto }}</option>
+            {% endfor %}
+            </select></p>
+            
+        <p><label for="id_status_produto">Status produto:</label> <select name="status_produto" id="id_status_produto">
+            <option value="ativo">-------------</option>
+            <option value="ativo">Ativo</option>
+            <option value="inativo">Inativo</option>
+            </select></p>
+        
+        <p><button type="submit"> Alterar Produto </button></p>
+    </form>    
+
+</div>    
+{% endblock %}

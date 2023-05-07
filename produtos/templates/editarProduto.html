@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h1> Alteração de Produto </h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'salvarAlteracoesProduto' produto.id %}">
+         {% csrf_token %}
+
+            <p><label for="id_nome_produto">Nome produto:</label> <input type="text" name="nome_produto" maxlength="50" required="" id="id_nome_produto" value="{{ produto.nome_produto }}"></p>
+            <p><label for="id_codigo_produto">Codigo produto:</label> <input type="text" name="codigo_produto" maxlength="10" id="id_codigo_produto" value="{{ produto.codigo_produto }}"></p>
+            <p><label for="id_descricao_produto">Descricao produto:</label> <input type="text" name="descricao_produto" maxlength="200" id="id_descricao_produto" value="{{ produto.descricao_produto }}"></p>
+            <p><label for="id_preco_produto">Preco produto:</label> <input type="number" name="preco_produto" step="0.01" id="id_preco_produto" value="{{ produto.preco_produto }}"></p>
+            <p><label for="id_status_produto">Status produto:</label> <select name="status_produto" id="id_status_produto" value="{{ produto.status_produto }}">
+            <option value="ativo">Ativo</option>
+
+            <option value="inativo">Inativo</option>
+
+            </select></p>
+            <p><label for="id_img_produto">Img produto:</label> <input type="file" name="img_produto" id="id_img_produto"></p>
+            {% if produto.img_produto %}
+                <p><img width="100px" height="100px" src="{{ produto.img_produto.url }}"></p>
+            {% endif %}
+
+            <p><button type="submit"> Atualizar Cadastro </button></p>
+    </form>
+</div>
+{% endblock %}
+
+
