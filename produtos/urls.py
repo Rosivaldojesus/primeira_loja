@@ -11,4 +11,6 @@ urlpatterns = [
     path('deleteProduto<int:produto_id>/', views.deleteProduto, name="deleteProduto"),  
     path('ativarProduto/', views.ativarProduto, name="ativarProduto"), 
     path('salvarAtivarProduto/', views.salvarAtivarProduto, name="salvarAtivarProduto"),
+    path('menuProduto/', views.manuProduto, name='menuProduto'),
+    path('viewDetalhesProduto/<int:produto_id>/', views.viewDetalheProduto, name='viewDetalhesProduto'),
 ]

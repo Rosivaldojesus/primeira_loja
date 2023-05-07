@@ -81,3 +81,18 @@ def salvarAtivarProduto(request):
     print(produto)
     produto.save()
     return redirect('/produtos/')
+
+def manuProduto(request):
+    produtos = Produtos.objects.all()
+    context = {
+        'produtos': produtos
+    }
+    return render(request, "menuProdutos.html", context)
+    
+
+def viewDetalheProduto(request, produto_id):
+    produto = Produtos.objects.get(id=produto_id)
+    context = {
+        'produto': produto
+    }
+    return render(request, "detalhesProduto.html", context)
